@@ -2,7 +2,7 @@
 
 // 请求数据
 import { watch,ref,computed } from "vue";
-import Skeleton, { Switchtype } from "../components/Skeleton.vue"
+import Skeleton, { Switchtype } from "@/components/Skeleton.vue"
 
 const state = ref<Switchtype>("loading")
 const setaaatrue = (isTrue:boolean)=>{

@@ -1,17 +1,21 @@
 <script setup lang="ts">
+import Palette from '@/components/Palette.vue';
+
 
 </script>
 <template>
     <div class="pc-wrap">
-    <router-view v-slot="{ Component }">
-      <transition name="slide-fade">
-        <component :is="Component"></component>
-      </transition>
-    </router-view>
+      <palette></palette>
+      <router-view v-slot="{ Component }">
+        <transition name="slide-fade">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
     </div>
 </template>
 <style scoped lang="scss">
 .pc-wrap {
+  position: relative;
   // margin-top: 50px;
     // padding-top: 50px;
     width: 100%;
@@ -31,17 +35,6 @@
   transform: translateX(200px);
   opacity: 0;
 }
-
-
-
-
-// .slide-fade-enter-to{
-//   transform: translateX(200px);
-// }
-// .slide-fade-enter-from{
-//   transition: all 3s ease;
-//   transform: translateX(-200px);
-// }
 .slide-fade-enter-active{
   transform: translateX(-200px);
   opacity: 0;

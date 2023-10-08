@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref,computed } from 'vue';
     const props = defineProps<{
         textb?:string
         texta?:string
@@ -9,21 +9,29 @@ import { computed, ref } from 'vue';
         truecallback?:Function
         flasecallback?:Function
     }>()
-    let option = ref(props.isTrue)
+    // const {isTrue:true} = props
+    let isTrue;
+    if(isTrue==undefined)isTrue=true
+    else isTrue = props.isTrue
+    let option = ref(isTrue)
+    const isBallleft = computed(()=>{
+        if(props.isTrue!=undefined)
+            return props.isTrue
+        return option.value
+    })
     const changeOption=()=>{
-        
-        if(option.value&&props.truecallback){props.truecallback(true);}
-        if(!option.value&&props.flasecallback){props.flasecallback(false);}
+        if(isBallleft&&props.truecallback){props.truecallback( option.value);}
+        if(!isBallleft&&props.flasecallback){props.flasecallback( option.value);}
         option.value = !option.value
     }
-    const spanballimg = computed(()=>{
-        if(!option.value&&props.balll){
-            return props.balll
-        }else if(option.value&&props.ballr){
-            return props.ballr
-        }
-        return "😵"
-    })
+    // const spanballimg = computed(()=>{
+    //     if(!option.value&&props.balll){
+    //         return props.balll
+    //     }else if(option.value&&props.ballr){
+    //         return props.ballr
+    //     }
+    //     return ""
+    // })
 </script>
 <template>
     <div class="switch-wrap">
@@ -32,8 +40,11 @@ import { computed, ref } from 'vue';
         </div>
         <div class="switch-center">
             <button class="switch-button" type="button" @click="changeOption()">
-                <span class="button-ball" :class={left:option,right:!option}>
-                    {{ spanballimg }}
+                <!--  -->
+                <span class="button-ball" :class={left:isBallleft,right:!isBallleft}>
+                    <slot name="ball" :class={left:option,right:!option}></slot>
+                    <!-- <div class="ball" :class={left:option,right:!option}></div> -->
+                    <!-- {{ spanballimg }} -->
                 </span>
             </button>
         </div>
@@ -62,6 +73,7 @@ import { computed, ref } from 'vue';
     display: inline-block;
 }
 .switch-button{
+    overflow: hidden;
     position: relative;
     width: 100%;
     display:block;
@@ -72,10 +84,10 @@ import { computed, ref } from 'vue';
     float: right;
     height: 100%;
 }
-.left{
+.right{
     left: calc(100% - 21px);
 }
-.right{
+.left{
     left: 1px;
 }
 .button-ball{
@@ -85,7 +97,7 @@ import { computed, ref } from 'vue';
     width: 1.2rem;
     height: 1.2rem;
     top: 0.5px;
-    background-color: var(--WDJ-color-button-ball);
+    background-color: rgba($color: #000000, $alpha: 0.1);
     border-radius: 50%;
     line-height: 1.2rem;
 }
@@ -95,6 +107,25 @@ import { computed, ref } from 'vue';
     background-color: var(--WDJ-color-button);
     border-color: var(--WDJ-color-border);
     border-radius: 1.5rem;
+}
+
+.ball{
+    width:100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: transparent;
+    box-shadow: 0 0 0 #fefa01,inset 0 0 10px 10px #ef7800;
+    transition: box-shadow 0.3s;
+    // box-shadow: 0 0 10000px #fefa01,inset 0em 0em 100px 10px #fefa01;
+}
+.dark .ball{
+    float: left;
+    box-shadow:inset 0 0 0px 10px #fefa01;
+}
+.light  .ball{
+    float: right;
+    border: 4px;
+    box-shadow:inset -6px -3px 0px -1px #fefa01;
 }
 </style>
 

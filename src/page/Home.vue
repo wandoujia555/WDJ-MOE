@@ -1,46 +1,53 @@
 <script setup lang="ts">
-import { watch,ref,computed } from "vue";
-import { equipment } from "../untils/constant";
-import Skeleton, { Switchtype } from "../components/Skeleton.vue"
-import Switch from "../components/Switch.vue";
-import PeaSk from "../components/Skeletons/PeaSk.vue"
+import { watch } from "vue";
+import { equipment } from "../utils/constant";
+import Progress from "../components/Progress.vue"
+import Pea from "@/components/Pea/Pea.vue";
+import Editor from "../components/features/Editor.vue";
 watch(equipment,(_)=>{
     console.log(_)
 })
-const aaa = ref<Switchtype>("loading")
-const setaaatrue = (isTrue:boolean)=>{
-    if(isTrue)aaa.value = "loading"
-    else aaa.value = "complete"
-}
-const isloding = computed(()=>{
-    return aaa.value
-})
-// console.log(classmode)
 </script>
 <template>
     <div class="Home-wrap">
-        <Switch :truecallback="setaaatrue" :flasecallback="setaaatrue"></Switch>
-        <Skeleton :throttle="1000" :loading="isloding">
-            <template #loading>
-                <PeaSk></PeaSk>
-            </template>
-            <template #complete>hhhhhh</template>
-        </Skeleton>
-        <!-- <Pea></Pea> -->
+        <div class="Home-wrap-bgc">
+        </div>
+        <Pea></Pea>
+        <Editor></Editor>
+        <Progress></Progress>
     </div>
 </template>
 <style scoped lang="scss">
+.text{
+    color: #fff;
+    filter: grayscale(1) contrast(999) invert(1)
+}
 .Home-wrap{
+    // position: relative;
+    overflow: hidden;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     color: azure;
 }
-
+.Home-wrap-bgc{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    &-ball{
+        position: absolute;
+        top:-200px;
+        right: -200px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        box-shadow: -100px 100px 1000px #fefa01;
+    }
+}
 .login{
     display: flex;
 }
-
-
 </style>
 <style>
-</style>
+</style>../utils/constant

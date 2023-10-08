@@ -1,18 +1,15 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+// :root {
+//   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+//   color: rgba(255, 255, 255, 0.87);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  background-color: var(--WDJ-color-bgc);
-}
+//   font-synthesis: none;
+//   text-rendering: optimizeLegibility;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-text-size-adjust: 100%;
+//   background-color: var(--WDJ-color-bgc);
+// }
 
 a {
   font-weight: 500;
@@ -23,11 +20,11 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-}
+// body {
+//   margin: 0;
+//   display: flex;
+//   place-items: center;
+// }
 
 h1 {
   font-size: 3.2em;
@@ -53,11 +50,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.card {
-  padding: 2em;
-}
+// .card {
+//   padding: 2em;
+// }
 
 :root.light {
+  color-scheme: light;
   --WDJ-color-border: rgba(60, 60, 60, .12);
   --WDJ-color-border-show:#4844442b;
   --fontcolorm: rgb(30 32 37 / 80%);
@@ -70,6 +68,16 @@ button:focus-visible {
   --WDJ-color-text: #213547;
   --WDJ-color-button:#f1f1f1;
   --WDJ-color-button-ball:#b0acac;
+
+
+  color: #213547;
+  background-color: #ffffff;
+  --WDJ-color-border: #e8e8e8;
+  --fontcolorm: rgb(30 32 37 / 80%);
+  --bgcolorm: #f6f6f8;
+  --linecolorm: #e8e8e8;
+  --bgcolors: #f3f3f4;
+  --fontcolorl: rgb(30 32 37 / 100%);
 }
 :root.dark {
   --WDJ-color-border: rgba(84, 84, 84, .48);
@@ -87,59 +95,108 @@ button:focus-visible {
   --WDJ-color-outlined: rgb(255 255 255 / 24%);
   --WDJ-color-button:#2f2f2f;
   --WDJ-color-button-ball:#1a1a1a;
-}
-@media (prefers-color-scheme: light) {
-  :root {
+
     color: #213547;
-    background-color: #ffffff;
-    --WDJ-color-border: #e8e8e8;
-    --fontcolorm: rgb(30 32 37 / 80%);
-    --bgcolorm: #f6f6f8;
-    --linecolorm: #e8e8e8;
-    --bgcolors: #f3f3f4;
-    --fontcolorl: rgb(30 32 37 / 100%);
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #213547;
-    --WDJ-color-border: #33353b;
-    --WDJ-color-primary: #3575f6;
-    --WDJ-color-danger: #df4d43;
-    --WDJ-color-success: #3dbaab;
-    --WDJ-color-warning: #fbad3b;
-    --WDJ-color-href: #308ce1;
-    --WDJ-color-text: rgb(255 255 255 / 90%);
-    --WDJ-color-text-secondary: rgb(255 255 255 / 70%);
-    --WDJ-color-text-tertiary: rgb(255 255 255 / 45%);
-    --WDJ-color-text-disabled: rgb(255 255 255 / 26%);
-    --WDJ-color-outlined: rgb(255 255 255 / 24%);
+    // --WDJ-color-border: #33353b;
+    // --WDJ-color-primary: #3575f6;
+    // --WDJ-color-danger: #df4d43;
+    // --WDJ-color-success: #3dbaab;
+    // --WDJ-color-warning: #fbad3b;
+    // --WDJ-color-href: #308ce1;
+    // --WDJ-color-text: rgb(255 255 255 / 90%);
+    // --WDJ-color-text-secondary: rgb(255 255 255 / 70%);
+    // --WDJ-color-text-tertiary: rgb(255 255 255 / 45%);
+    // --WDJ-color-text-disabled: rgb(255 255 255 / 26%);
+    // --WDJ-color-outlined: rgb(255 255 255 / 24%);
     --WDJ-color-bgc :#242424;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     color: #213547;
+//     background-color: #ffffff;
+//     --WDJ-color-border: #e8e8e8;
+//     --fontcolorm: rgb(30 32 37 / 80%);
+//     --bgcolorm: #f6f6f8;
+//     --linecolorm: #e8e8e8;
+//     --bgcolors: #f3f3f4;
+//     --fontcolorl: rgb(30 32 37 / 100%);
+//   }
+//   a:hover {
+//     color: #747bff;
+//   }
+//   button {
+//     background-color: #f9f9f9;
+//   }
+// }
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     color: #213547;
+//     --WDJ-color-border: #33353b;
+//     --WDJ-color-primary: #3575f6;
+//     --WDJ-color-danger: #df4d43;
+//     --WDJ-color-success: #3dbaab;
+//     --WDJ-color-warning: #fbad3b;
+//     --WDJ-color-href: #308ce1;
+//     --WDJ-color-text: rgb(255 255 255 / 90%);
+//     --WDJ-color-text-secondary: rgb(255 255 255 / 70%);
+//     --WDJ-color-text-tertiary: rgb(255 255 255 / 45%);
+//     --WDJ-color-text-disabled: rgb(255 255 255 / 26%);
+//     --WDJ-color-outlined: rgb(255 255 255 / 24%);
+//     --WDJ-color-bgc :#242424;
+//   }
+//   a:hover {
+//     color: #747bff;
+//   }
+//   button {
+//     background-color: #f9f9f9;
+//   }
+// }
+:root{
+  // color-scheme: light dark;
+  background-color: var(--WDJ-color-bgc);
+  line-height: 1.5;
+  font-weight: 400;
 }
 html,body,#app{
   padding: 0;
   margin: 0;
   height: 100%;
   width: 100%;
-  text-align: center;
+  // text-align: center;
 }
 #app{
   display: flex;
   flex-direction: column
 }
-.pc-wrap{
-  flex: auto;
+// .pc-wrap{
+//   flex: auto;
+// }
+
+// #app {
+//   width: 100%;
+//   height: 100%;
+// }
+
+
+
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* 进入dark模式和退出dark模式时，两个图像的位置顺序正好相反 */
+.dark::view-transition-old(root) {
+  z-index: 1;
+}
+.dark::view-transition-new(root) {
+  z-index: 999;
+}
+
+::view-transition-old(root) {
+  z-index: 999;
+}
+::view-transition-new(root) {
+  z-index: 1;
 }

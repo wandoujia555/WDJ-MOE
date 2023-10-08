@@ -5,7 +5,7 @@ import Skeletonline from '../Skeletonline.vue';
 
 
 const props = defineProps<{
-    imgsum:number
+    imgsum?:number
 }>()
 let {imgsum=1} = props
 </script>
@@ -49,22 +49,32 @@ let {imgsum=1} = props
     </div>
 </template>
 <style scoped lang="scss">
+// 图片高度
 $--center-height:180px;
-$--center-width:400px;
+// 盒子宽度
+// $--center-width:400px;
+$--center-width:100%;
+// 标题高度
 $--top-height:80px;
 .PeaSk{
     display:inline-flex;   
     flex-direction:column;
+    min-width: 400px;
 }
 .PeaSk-top{
     display:flex;
+    // flex: 1;
     margin-top:10px;
-    margin-left:10px;
+    // margin-left:10px;
+    // margin-right:10px;
     width:$--center-width;
+    
+    // padding-right: 10px;
 }
 .headshot{
     height:$--top-height;
     width:80px;
+    margin-left: 10px;
     &-img{
         width:100%;
         height:100%;
@@ -88,7 +98,7 @@ $--top-height:80px;
 }
 // 中间
 .PeaSk-center{
-    flex:1
+    flex:1;
 }
 .PeaSk-img{
     &1{
